@@ -11,7 +11,7 @@ export const Home = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:5000/books')
+        axios.get('http://localhost:3000/books')
             .then((response) => {
                 setBooks(response.data.data);
                 setLoading(false);
@@ -36,17 +36,21 @@ export const Home = () => {
             ) : (
                 <table className='w-full border-separate border-spacing-2'>
                     <thead>
-                        <tr className='border border-slate-600 rounded-md'>No</tr>
-                        <tr className='border border-slate-600 rounded-md'>Title</tr>
-                        <tr className='border border-slate-600 rounded-md max-md:hidden'>Author</tr>
-                        <tr className='border border-slate-600 rounded-md max-md:hidden'>Publisher Year</tr>
-                        <tr className='border border-slate-600 rounded-md'>Operations</tr>
+                        <tr className='border border-slate-600 rounded-md'>
+                            <th>No</th> 
+                            <th>Title</th>
+                            <th className="max-md:hidden">Author</th>
+                            <th className="max-md:hidden">Publisher Year</th>
+                            <th>Operations</th>
+
+                        </tr>
+                        
 
                     </thead>
                     <tbody>
                         {
                             books.map((book, index) =>(
-                                <tr key={book._id} className='h -8'>
+                                <tr key={book._id} className='h-8'>
                                     <td className='border border-slate-700 rounded-md text-center'>{index + 1}
 
                                     </td>

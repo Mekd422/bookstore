@@ -15,13 +15,14 @@ app.get('/', (req, res) => {
 
   res.send('welcome to mern stack tutorial');
 });
+app.use(cors());
 
 app.use("/books", bookRoutes);
 
-app.use(cors());
+
 
 // app.use(cors({
-//     origin: 'http://localhost:3000', // Adjust this to your frontend URL
+//     origin: 'http://localhost:5173', // Adjust this to your frontend URL
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     allowedHeaders: ['Content-Type'] // Allow credentials if needed
 // }));
